@@ -1,5 +1,9 @@
 #!/bin/bash
-# Make sure you have the GOG installer in the same directory as this script
+# Make sure you have the GOG installer in the ./resources folder
+
+mkdir -p resources
+cd resources
+
 innoextract setup_ut_goty_2.0.0.5.exe
 mkdir -p ../build/core
 mv app/Music ../build/core
