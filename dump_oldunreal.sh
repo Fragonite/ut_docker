@@ -9,7 +9,7 @@ cd resources
 wget https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Linux-amd64.tar.bz2 -O OldUnreal.tar.bz2
 mkdir -p tmp-oldunreal/oldunreal
 tar -xvf OldUnreal.tar.bz2 -C tmp-oldunreal/oldunreal
-mkdir -p ../build/inis/System64
-cp tmp-oldunreal/oldunreal/System64/Default.ini ../build/inis/System64/UnrealTournament.ini
-cp tmp-oldunreal/oldunreal/System64/DefUser.ini ../build/inis/System64/User.ini
 mv tmp-oldunreal/oldunreal ../build/
+mkdir -p ../build/inis/System64
+cp ../build/oldunreal/System64/Default.ini ../build/inis/System64/UnrealTournament.ini
+cp ../build/oldunreal/System64/DefUser.ini ../build/inis/System64/User.ini
