@@ -1,6 +1,7 @@
 #!/bin/bash
 # Run after dump_oldunreal.sh
 
+set -e
 mkdir -p resources
 cd resources
 

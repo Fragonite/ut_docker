@@ -9,6 +9,7 @@ mkdir unpack
 
 # Run after update_ini.sh
 
+set -e
 mkdir -p resources
 cd resources
 

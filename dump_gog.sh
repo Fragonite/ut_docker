@@ -1,6 +1,7 @@
 #!/bin/bash
 # Make sure you have the GOG installer in the ./resources folder
 
+set -e
 mkdir -p resources
 cd resources
 
