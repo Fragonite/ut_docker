@@ -20,7 +20,89 @@ mv unpack/fnn/* ../build/mutators/System
 # AMD64
 sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=fnn262.NewNetServer/' ../build/inis/System64/UnrealTournament.ini
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=fnn262/' ../build/inis/System64/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP1H262/' ../build/inis/System64/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP4H262/' ../build/inis/System64/UnrealTournament.ini
+
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=multimesh/' ../build/inis/System64/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=EpicCustomModels/' ../build/inis/System64/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TCowMeshSkins/' ../build/inis/System64/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TNaliMeshSkins/' ../build/inis/System64/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TSkMSkins/' ../build/inis/System64/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=SkeletalChars/' ../build/inis/System64/UnrealTournament.ini
 # AMD64 END
+
+# AMD64
+cat << EOF > ../build/inis/System64/FragNewNet.ini
+[fnn262.UnlimitedAmmo]
+RedeemerUnlimited=False
+
+[fnn262.GiveWeapons]
+bDoubleEnforcer=True
+bGiveAllWeapons=True
+bGiveRedeemer=False
+bGiveTranslocator=False
+GiveMaxAmmo=199
+
+[fnn262.UTPure]
+HammerDamagePri=60.000000
+HammerDamageSec=20.000000
+HammerDamageSelfPri=36.000000
+HammerDamageSelfSec=24.000000
+EnforcerDamage=17.000000
+BioDamagePri=40.000000
+BioDamageSec=75.000000
+BioDamageCharging=150.000000
+BioDamageCharged=300.000000
+ShockDamagePri=40.000000
+ShockDamageSec=55.000000
+ShockDamageCombo=165.000000
+PulseDamagePri=20.000000
+PulseDamageSec=4.000000
+RipperDamagePri=30.000000
+RipperDamageSec=34.000000
+MinigunDamagePri=9.000000
+MinigunDamageSec=14.000000
+FlakDamagePri=16.000000
+FlakDamageSec=70.000000
+RocketDamagePri=75.000000
+RocketDamageSec=80.000000
+SniperDamagePri=40.000000
+SniperHeadshotDamage=100.000000
+H4xDamagePri=45.000000
+H4xHeadshotDamage=100.000000
+H4xSpeed=1.000000
+HookDamageMode0=1.000000
+HookDamageMode1=13.000000
+ComboGibDamagePri=700.000000
+ComboGibDamageSec=700.000000
+ComboGibDamageCombo=700.000000
+ComboDamageType=ShockCombo
+bNNAnnouncer=True
+bAnnouncerForSpecs=True
+bDMPlayerCount=False
+bTeamPlayerCount=False
+bHUDCTF4=False
+bHUDMultiCTF=False
+bDoubleEnforcers=True
+bBrightPlayer=True
+bSpecBehindView=True
+bShowCarcass=True
+bShootCarcass=True
+bBunnyHopping=True
+bSmoothFOVChanges=False
+bRedeemerControls=False
+PlayerPacks[0]=BP1
+PlayerPacks[1]=BP4
+PlayerPacks[2]=
+bForceDefaultHitSounds=False
+DefaultHitSound=2
+DefaultTeamHitSound=3
+bAdvancedTeamSay=False
+bAutoPause=False
+MinClientRate=50000
+MaxClientRate=50000
+bUseOldLogo=False
+EOF
 
 # https://ut99.org/viewtopic.php?t=15881
 wget https://ut99.org/download/file.php?id=21041 -O unpack/classicscoreboard.zip 
@@ -38,3 +120,12 @@ sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=csb12/' ../build/inis/Syst
 # mkdir unpack/votesys
 # unzip unpack/votesys.zip -d unpack/votesys
 # mv unpack/votesys/System/* mutators/System
+
+# Bonus Pack 4
+wget https://unrealarchivesgp.blob.core.windows.net/files/patches-updates/Unreal%20Tournament/Bonus%20Packs/utbonuspack4-zip.zip -O unpack/utbonuspack4.zip
+mkdir -p unpack/utbonuspack4
+unzip unpack/utbonuspack4.zip -d unpack/utbonuspack4
+# mv unpack/utbonuspack4/* ../build/mutators
+rsync -a unpack/utbonuspack4/* ../build/mutators
+
+# AMD64
