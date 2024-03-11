@@ -6,6 +6,9 @@ ENV DEBIAN_FRONTEND noninteractive
 # Set working directory
 WORKDIR /app
 
+# Install nano
+# RUN apt-get update && apt-get install -y nano
+
 # Copy project files
 COPY ./build/core .
 COPY ./build/oldunreal .
