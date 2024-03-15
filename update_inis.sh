@@ -25,4 +25,6 @@ crudini --set --ini-options=nospace ../build/inis/System64/UnrealTournament.ini 
 crudini --set --ini-options=nospace ../build/inis/System64/UnrealTournament.ini Botpack.DeathMatchPlus bForceRespawn True
 crudini --set --ini-options=nospace ../build/inis/System64/UnrealTournament.ini Botpack.DeathMatchPlus NetWait 0
 # crudini --set --ini-options=nospace ../build/inis/System64/UnrealTournament.ini Botpack.DeathMatchPlus RestartWait 0
+crudini --set --ini-options=nospace ../build/inis/System64/UnrealTournament.ini IpServer.UdpServerUplink DoUplink True
+crudini --set --ini-options=nospace ../build/inis/System64/UnrealTournament.ini IpServer.UdpServerUplink UpdateMinutes 1
 # AMD64 END
