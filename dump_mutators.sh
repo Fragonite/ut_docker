@@ -22,11 +22,11 @@ sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=fnn262/' ../build/inis/Sys
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP1H262/' ../build/inis/System/UnrealTournament.ini
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP4H262/' ../build/inis/System/UnrealTournament.ini
 
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=multimesh/' ../build/inis/System/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=EpicCustomModels/' ../build/inis/System/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TCowMeshSkins/' ../build/inis/System/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TNaliMeshSkins/' ../build/inis/System/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TSkMSkins/' ../build/inis/System/UnrealTournament.ini
+# sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=multimesh/' ../build/inis/System/UnrealTournament.ini
+# sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=EpicCustomModels/' ../build/inis/System/UnrealTournament.ini
+# sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TCowMeshSkins/' ../build/inis/System/UnrealTournament.ini
+# sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TNaliMeshSkins/' ../build/inis/System/UnrealTournament.ini
+# sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TSkMSkins/' ../build/inis/System/UnrealTournament.ini
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=SkeletalChars/' ../build/inis/System/UnrealTournament.ini
 
 cat << EOF > ../build/inis/System/FragNewNet.ini
