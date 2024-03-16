@@ -146,7 +146,7 @@ mv unpack/xserverquery/XServerQuery.u ../build/mutators/System
 sed -i 's/^ServerActors=IpServer.UdpServerQuery/ServerActors=XServerQuery.XServerQuery/' ../build/inis/System/UnrealTournament.ini
 sed -i 's/^ServerActors=IpServer.UdpServerUplink/ServerActors=XServerQuery.XServerUplink/g' ../build/inis/System/UnrealTournament.ini
 
-# RememberMe
-mv ../RememberMe/RememberMe.u ../build/mutators/System
-sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=RememberMe.RememberMe/' ../build/inis/System/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=RememberMe/' ../build/inis/System/UnrealTournament.ini
+# ServerUtils
+mv ../ServerUtils/ServerUtils.u ../build/mutators/System
+sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=ServerUtils.ServerUtils/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=ServerUtils/' ../build/inis/System/UnrealTournament.ini
