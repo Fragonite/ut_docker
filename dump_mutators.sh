@@ -40,6 +40,20 @@ bGiveRedeemer=False
 bGiveTranslocator=False
 GiveMaxAmmo=199
 
+[fnn262.NoItemsMap]
+bNoAllWeapons=True
+bNoRedeemer=False
+bNoAmmo=True
+bNoInvisibility=False
+bNoAmplifier=False
+bNoShieldbelt=False
+bNoArmor=False
+bNoThighPads=False
+bNoBigKegOHealth=False
+bNoMedBoxes=False
+bNoVials=False
+bNoJumpBoots=False
+
 [fnn262.UTPure]
 HammerDamagePri=60.000000
 HammerDamageSec=20.000000
