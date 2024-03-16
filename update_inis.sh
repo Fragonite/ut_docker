@@ -28,9 +28,9 @@ crudini --set --ini-options=nospace ../build/inis/System/UnrealTournament.ini Ip
 crudini --set --ini-options=nospace ../build/inis/System/UnrealTournament.ini IpServer.UdpServerUplink UpdateMinutes 1
 
 # AMD64
-mv ../build/inis/System ../build/inis/System64
+# mv ../build/inis/System ../build/inis/System64
 # AMD64 END
 
 # ARM
-# mv ../build/inis/System ../build/inis/SystemARM64
+mv ../build/inis/System ../build/inis/SystemARM64
 # ARM END
