@@ -126,9 +126,7 @@ sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=csb12/' ../build/inis/Syst
 
 # # https://ut99.org/viewtopic.php?t=15633
 # wget https://github.com/Deaod/VoteSys/releases/download/v11b/VoteSys_v11b.zip -O unpack/votesys.zip
-# mkdir unpack/votesys
-# unzip unpack/votesys.zip -d unpack/votesys
-# mv unpack/votesys/System/* mutators/System
+# ...
 
 # Bonus Pack 4
 wget https://unrealarchivesgp.blob.core.windows.net/files/patches-updates/Unreal%20Tournament/Bonus%20Packs/utbonuspack4-zip.zip -O unpack/utbonuspack4.zip
@@ -148,5 +146,5 @@ sed -i 's/^ServerActors=IpServer.UdpServerUplink/ServerActors=XServerQuery.XServ
 
 # ServerUtils
 mv ../ServerUtils/ServerUtils.u ../build/mutators/System
-sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=ServerUtils.ServerUtils/' ../build/inis/System/UnrealTournament.ini
+# sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=ServerUtils.ServerUtils/' ../build/inis/System/UnrealTournament.ini
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=ServerUtils/' ../build/inis/System/UnrealTournament.ini
