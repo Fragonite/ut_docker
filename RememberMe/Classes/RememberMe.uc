@@ -22,28 +22,6 @@ replication {
 		ClientNotifyMinutes, ClientNotifyStartSeconds, ClientAddFav;
 }
 
-function bool CheckReplacement(Actor Other, out byte bSuperRelevant) {
-	// local RememberMe RememberMe;
-
-	// if(Other.IsA('PlayerPawn')) {
-	// 	RememberMe = Other.Spawn(Class, Other);
-	// 	if (RememberMe != None) {
-	// 		RememberMe.ClientAddFav();
-	// 		RememberMe.LifeSpan = 60;
-	// 	}
-	// }
-	return true;
-}
-
-// function ModifyLogin(out class<playerpawn> SpawnClass, out string Portal, out string Options) {
-// 	if(NextMutator != None)
-// 	{
-// 		NextMutator.ModifyLogin(SpawnClass, Portal, Options);
-// 	}
-
-// 	ClientAddFav();
-// }
-
 function PostBeginPlay() {
 	Super.PostBeginPlay();
 	
@@ -57,37 +35,12 @@ function PostBeginPlay() {
 }
 
 simulated function PostNetBeginPlay() {
-	// local PlayerPawn Player;
-	// local RememberMe RememberMe;
-
 	Super.PostNetBeginPlay();
 
 	if (Role < ROLE_Authority)
 	{
 		ClientAddFav();
 	}
-	
-	// if (Owner != None)
-	// 	return;
-
-	// foreach AllActors(class'PlayerPawn', Player) {
-	// 	if (Player.Player != None) {
-	// 		RememberMe = Player.Spawn(Class, Player);
-	// 		if (RememberMe != None) {
-	// 			RememberMe.ClientAddFav();
-	// 			RememberMe.LifeSpan = 60;
-	// 		}
-	// 	}
-	// }
-
-
-	// if(Other.IsA('PlayerPawn')) {
-	// 	RememberMe = Other.Spawn(Class, Other);
-	// 	if (RememberMe != None) {
-	// 		RememberMe.ClientAddFav();
-	// 		RememberMe.LifeSpan = 60;
-	// 	}
-	// }
 
 	if (ClientNotifyStartSeconds == 0)
 		Timer();
@@ -101,7 +54,7 @@ simulated function Timer() {
 	if (IsInFavorites() || CheckFav == "")
 		return;
 		
-	SetTimer(ClientNotifyMinutes*60, true);
+	SetTimer(ClientNotifyMinutes*10, true);
 
 	foreach AllActors(class'PlayerPawn', Player)
 		if (Player.Player != None)
@@ -131,37 +84,6 @@ simulated function bool IsInFavorites() {
 			return true;
 		}
 	return false;
-}
-
-function CheckMessage( Actor Sender, Pawn Receiver, coerce string S) {
-	local RememberMe RememberMe;
-	
-	if (Sender != Receiver)
-		return;
-	
-	If (Spectator(Sender) != None)
-		S = Mid(S, Len(Pawn(Sender).GetHumanName()) + 1);
-	
-	if (PlayerPawn(Sender) != None && S ~= FavCommand) {
-		RememberMe = Sender.Spawn(Class, Sender);
-		if (RememberMe != None) {
-			RememberMe.ClientAddFav();
-			RememberMe.LifeSpan = 60;
-		}
-	}
-}
-
-function bool MutatorTeamMessage( Actor Sender, Pawn Receiver, PlayerReplicationInfo PRI, coerce string S, name Type, optional bool bBeep ) {
-	CheckMessage(Sender, Receiver, S);
-
-	return Super.MutatorTeamMessage( Sender, Receiver, PRI, S, Type, bBeep );
-}
-
-function bool MutatorBroadcastMessage( Actor Sender, Pawn Receiver, out coerce string Msg, optional bool bBeep, out optional name Type )
-{
-	CheckMessage(Sender, Receiver, Msg);
-	
-	return Super.MutatorBroadcastMessage( Sender, Receiver, Msg, bBeep, Type );
 }
 
 simulated function ClientAddFav() {
