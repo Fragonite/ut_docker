@@ -17,15 +17,14 @@ wget https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469
 mkdir -p tmp-oldunreal/oldunreal
 tar -xvf OldUnreal.tar.bz2 -C tmp-oldunreal/oldunreal
 mv tmp-oldunreal/oldunreal ../build/
+mkdir -p ../build/inis/System
 
 # AMD64
-mkdir -p ../build/inis/System64
-cp ../build/oldunreal/System64/Default.ini ../build/inis/System64/UnrealTournament.ini
-cp ../build/oldunreal/System64/DefUser.ini ../build/inis/System64/User.ini
+cp ../build/oldunreal/System64/Default.ini ../build/inis/System/UnrealTournament.ini
+cp ../build/oldunreal/System64/DefUser.ini ../build/inis/System/User.ini
 # AMD64 END
 
 # ARM
-# mkdir -p ../build/inis/SystemARM64
-# cp ../build/oldunreal/SystemARM64/Default.ini ../build/inis/SystemARM64/UnrealTournament.ini
-# cp ../build/oldunreal/SystemARM64/DefUser.ini ../build/inis/SystemARM64/User.ini
+cp ../build/oldunreal/SystemARM64/Default.ini ../build/inis/System/UnrealTournament.ini
+cp ../build/oldunreal/SystemARM64/DefUser.ini ../build/inis/System/User.ini
 # ARM END

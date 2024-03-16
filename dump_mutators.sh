@@ -17,22 +17,19 @@ wget https://ut99.org/download/file.php?id=21798 -O unpack/fnn.zip
 unzip unpack/fnn.zip -d unpack/fnn
 mv unpack/fnn/* ../build/mutators/System
 
-# AMD64
-sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=fnn262.NewNetServer/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=fnn262/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP1H262/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP4H262/' ../build/inis/System64/UnrealTournament.ini
+sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=fnn262.NewNetServer/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=fnn262/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP1H262/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP4H262/' ../build/inis/System/UnrealTournament.ini
 
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=multimesh/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=EpicCustomModels/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TCowMeshSkins/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TNaliMeshSkins/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TSkMSkins/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=SkeletalChars/' ../build/inis/System64/UnrealTournament.ini
-# AMD64 END
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=multimesh/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=EpicCustomModels/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TCowMeshSkins/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TNaliMeshSkins/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=TSkMSkins/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=SkeletalChars/' ../build/inis/System/UnrealTournament.ini
 
-# AMD64
-cat << EOF > ../build/inis/System64/FragNewNet.ini
+cat << EOF > ../build/inis/System/FragNewNet.ini
 [fnn262.UnlimitedAmmo]
 RedeemerUnlimited=False
 
@@ -110,10 +107,8 @@ mkdir -p unpack/classicscoreboard
 unzip unpack/classicscoreboard.zip -d unpack/classicscoreboard
 mv unpack/classicscoreboard/* ../build/mutators/System
 
-# AMD64
-sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=csb12.ClassicActor/' ../build/inis/System64/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=csb12/' ../build/inis/System64/UnrealTournament.ini
-# AMD64 END
+sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=csb12.ClassicActor/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=csb12/' ../build/inis/System/UnrealTournament.ini
 
 # # https://ut99.org/viewtopic.php?t=15633
 # wget https://github.com/Deaod/VoteSys/releases/download/v11b/VoteSys_v11b.zip -O unpack/votesys.zip
@@ -128,4 +123,16 @@ unzip unpack/utbonuspack4.zip -d unpack/utbonuspack4
 # mv unpack/utbonuspack4/* ../build/mutators
 rsync -a unpack/utbonuspack4/* ../build/mutators
 
-# AMD64
+# XServerQuery
+wget https://ut99.org/download/file.php?id=16058 -O unpack/xserverquery.zip
+mkdir -p unpack/xserverquery
+unzip unpack/xserverquery.zip -d unpack/xserverquery
+mv unpack/xserverquery/XServerQuery.u ../build/mutators/System
+
+sed -i 's/^ServerActors=IpServer.UdpServerQuery/ServerActors=XServerQuery.XServerQuery/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerActors=IpServer.UdpServerUplink/ServerActors=XServerQuery.XServerUplink/g' ../build/inis/System/UnrealTournament.ini
+
+# RememberMe
+mv ../RememberMe/RememberMe.u ../build/mutators/System
+sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=RememberMe.RememberMe/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=RememberMe/' ../build/inis/System/UnrealTournament.ini
