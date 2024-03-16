@@ -48,6 +48,7 @@ simulated function ClientAddFav() {
 		
 		if (class'UBrowserFavoritesFact'.default.FavoriteCount >= ArrayCount(class'UBrowserFavoritesFact'.default.Favorites)) {
 			return;
+		}
 		
 		GetHostPort(Level.GetAddressURL(), Host, Port);
 
