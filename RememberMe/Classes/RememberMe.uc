@@ -63,7 +63,7 @@ simulated function ClientAddFav() {
 
 static final function GetHostPort(string Address, out string Host, out int Port)
 {
-	local int i, j;
+	local int i;
 	
 	Host = Address;
 	while (true) {
