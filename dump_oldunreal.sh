@@ -25,6 +25,6 @@ cp ../build/oldunreal/System64/DefUser.ini ../build/inis/System/User.ini
 # AMD64 END
 
 # ARM
-cp ../build/oldunreal/SystemARM64/Default.ini ../build/inis/System/UnrealTournament.ini
-cp ../build/oldunreal/SystemARM64/DefUser.ini ../build/inis/System/User.ini
+# cp ../build/oldunreal/SystemARM64/Default.ini ../build/inis/System/UnrealTournament.ini
+# cp ../build/oldunreal/SystemARM64/DefUser.ini ../build/inis/System/User.ini
 # ARM END
