@@ -7,7 +7,9 @@ cd resources
 # https://github.com/OldUnreal/UnrealTournamentPatches/releases
 
 # AMD64
-wget https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Linux-amd64.tar.bz2 -O OldUnreal.tar.bz2
+if [ ! -f OldUnreal.tar.bz2 ]; then
+    wget https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469d/OldUnreal-UTPatch469d-Linux-amd64.tar.bz2 -O OldUnreal.tar.bz2
+fi 
 # AMD64 END
 
 # ARM

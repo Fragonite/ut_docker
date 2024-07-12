@@ -6,19 +6,21 @@ cd resources
 mkdir -p mutators/System
 # mkdir -p mutators/Music
 # mkdir -p mutators/Sounds
-# mkdir -p mutators/Textures
+mkdir -p mutators/Textures
 # mkdir -p mutators/Maps
 
 mkdir -p ../build/mutators/System
 
 # https://ut99.org/viewtopic.php?t=15699
 mkdir -p unpack/fnn
-wget https://ut99.org/download/file.php?id=21798 -O unpack/fnn.zip
+if [ ! -f unpack/fnn.zip ]; then
+    wget https://ut99.org/download/file.php?id=22698 -O unpack/fnn.zip
+fi
 unzip unpack/fnn.zip -d unpack/fnn
 mv unpack/fnn/* ../build/mutators/System
 
-sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=fnn262.NewNetServer/' ../build/inis/System/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=fnn262/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=fnn275.NewNetServer/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=fnn275/' ../build/inis/System/UnrealTournament.ini
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP1H262/' ../build/inis/System/UnrealTournament.ini
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP4H262/' ../build/inis/System/UnrealTournament.ini
 
@@ -30,17 +32,17 @@ sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP4H262/' ../build/inis/Sy
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=SkeletalChars/' ../build/inis/System/UnrealTournament.ini
 
 cat << EOF > ../build/inis/System/FragNewNet.ini
-[fnn262.UnlimitedAmmo]
+[fnn275.UnlimitedAmmo]
 RedeemerUnlimited=False
 
-[fnn262.GiveWeapons]
+[fnn275.GiveWeapons]
 bDoubleEnforcer=True
 bGiveAllWeapons=True
 bGiveRedeemer=False
 bGiveTranslocator=False
 GiveMaxAmmo=199
 
-[fnn262.NoItemsMap]
+[fnn275.NoItemsMap]
 bNoAllWeapons=True
 bNoRedeemer=False
 bNoAmmo=True
@@ -54,7 +56,7 @@ bNoMedBoxes=False
 bNoVials=False
 bNoJumpBoots=False
 
-[fnn262.UTPure]
+[fnn275.UTPure]
 HammerDamagePri=60.000000
 HammerDamageSec=20.000000
 HammerDamageSelfPri=36.000000
@@ -116,7 +118,9 @@ bUseOldLogo=False
 EOF
 
 # https://ut99.org/viewtopic.php?t=15881
-wget https://ut99.org/download/file.php?id=21041 -O unpack/classicscoreboard.zip 
+if [ ! -f unpack/classicscoreboard.zip ]; then
+    wget https://ut99.org/download/file.php?id=21041 -O unpack/classicscoreboard.zip
+fi
 mkdir -p unpack/classicscoreboard
 unzip unpack/classicscoreboard.zip -d unpack/classicscoreboard
 mv unpack/classicscoreboard/* ../build/mutators/System
@@ -129,20 +133,47 @@ sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=csb12/' ../build/inis/Syst
 # ...
 
 # Bonus Pack 4
-wget https://unrealarchivesgp.blob.core.windows.net/files/patches-updates/Unreal%20Tournament/Bonus%20Packs/utbonuspack4-zip.zip -O unpack/utbonuspack4.zip
+if [ ! -f unpack/utbonuspack4.zip ]; then
+    wget https://unrealarchivesgp.blob.core.windows.net/files/patches-updates/Unreal%20Tournament/Bonus%20Packs/utbonuspack4-zip.zip -O unpack/utbonuspack4.zip
+fi
 mkdir -p unpack/utbonuspack4
 unzip unpack/utbonuspack4.zip -d unpack/utbonuspack4
 # mv unpack/utbonuspack4/* ../build/mutators
 rsync -a unpack/utbonuspack4/* ../build/mutators
 
 # XServerQuery
-wget https://ut99.org/download/file.php?id=16058 -O unpack/xserverquery.zip
+if [ ! -f unpack/xserverquery.zip ]; then
+    wget https://ut99.org/download/file.php?id=16794 -O unpack/xserverquery.zip
+fi
 mkdir -p unpack/xserverquery
 unzip unpack/xserverquery.zip -d unpack/xserverquery
 mv unpack/xserverquery/XServerQuery.u ../build/mutators/System
 
 sed -i 's/^ServerActors=IpServer.UdpServerQuery/ServerActors=XServerQuery.XServerQuery/' ../build/inis/System/UnrealTournament.ini
 sed -i 's/^ServerActors=IpServer.UdpServerUplink/ServerActors=XServerQuery.XServerUplink/g' ../build/inis/System/UnrealTournament.ini
+
+cat << EOF >> ../build/inis/System/UnrealTournament.ini
+[XServerQuery.XServerQuery]
+netAddress=
+homepage=
+bSendMailURL=False
+bShowProtection=hidden
+bShowSpectators=True
+bShowPlayerCountry=True
+iMaxConnPerIPPerSec=2
+iNumPacketsBeforBlock=8
+iNumSecToBlockIP=5
+bLogSpecialQuerys=False
+bLogUnknownQuerys=False
+bShowTimeStamp=True
+bShowAdvancedTimeStamp=False
+
+EOF
+
+mkdir -p unpack/xserverquery/iptocountry
+unzip "unpack/xserverquery/IpToCountry-1.6 (20220122).zip" -d unpack/xserverquery/iptocountry
+mv unpack/xserverquery/iptocountry/ipToCountry.u ../build/mutators/System
+mv unpack/xserverquery/iptocountry/CountryFlags3.utx ../build/mutators/Textures
 
 # ServerUtils
 mv ../ServerUtils/ServerUtils.u ../build/mutators/System
