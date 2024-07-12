@@ -21,8 +21,8 @@ mv unpack/fnn/* ../build/mutators/System
 
 sed -i 's/^ServerActors=UWeb.WebServer/&\nServerActors=fnn275.NewNetServer/' ../build/inis/System/UnrealTournament.ini
 sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=fnn275/' ../build/inis/System/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP1H262/' ../build/inis/System/UnrealTournament.ini
-sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP4H262/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP1H275/' ../build/inis/System/UnrealTournament.ini
+sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=BP4H275/' ../build/inis/System/UnrealTournament.ini
 
 # sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=multimesh/' ../build/inis/System/UnrealTournament.ini
 # sed -i 's/^ServerPackages=TSkMSkins/&\nServerPackages=EpicCustomModels/' ../build/inis/System/UnrealTournament.ini
