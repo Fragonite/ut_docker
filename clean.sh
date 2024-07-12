@@ -25,6 +25,9 @@ rm -r ../build/oldunreal
 rm -r ../build/mutators
 rm -r ../build/inis
 
+# Find and remove all directories within the current directory
+find . -mindepth 1 -maxdepth 1 -type d -exec rm -r {} \;
+
 if $full_mode; then
     rm -r ../build/core
 fi
