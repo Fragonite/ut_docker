@@ -153,6 +153,8 @@ sed -i 's/^ServerActors=IpServer.UdpServerQuery/ServerActors=XServerQuery.XServe
 sed -i 's/^ServerActors=IpServer.UdpServerUplink/ServerActors=XServerQuery.XServerUplink/g' ../build/inis/System/UnrealTournament.ini
 
 cat << EOF >> ../build/inis/System/UnrealTournament.ini
+
+
 [XServerQuery.XServerQuery]
 netAddress=
 homepage=
